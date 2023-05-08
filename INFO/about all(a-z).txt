@@ -1,0 +1,172 @@
+Amazon EC2 (short for Amazon Elastic Cloud Compute) is a service for running servers in the cloud.
+
+Amazon S3 (or Amazon Simple Storage Service) provides a cloud storage infrastructure where users can store unstructured data 
+Amazon S3 is an object storage that was designed for storing data of any size, of non-standard format, or highly dynamic.
+
+-------------------------------------------------------------------------------------------------------
+Terraform creates and manages resources on cloud platforms and other services through their application programming interfaces (APIs).
+Terraform automates and manage infrastructure, your platform and services that run on that platform.
+open source and declarative--->dont have to define WHAT
+Tool for infrastructure provisioning.
+
+Difference between Ansible and Terraform:
+Both:Infrastructure as Code
+Ansible                          Terraform
+A configuration tool             Infrastructure provisioning tool
+Configure that infrastructure
+more mature                      relatively new
+
+Terraform can build public and private cloud infrastructure, network appliances, and software as a service (SaaS).
+
+Terraform’s architecture is comprised of two major components:
+
+Terraform Core
+----Terraform core receives input from two sources
+The first input source is a Terraform configuration created by you as a user.
+The second input source is a state in which Terraform keeps the most recent configuration of the infrastructure.
+
+Providers
+----It allows you to build infrastructure on numerous levels.
+AWS, Azure, GCP, and other infrastructure as service providers could be used.
+
+--------------------------------------------------------------------------------------------------------
+ANSIBLE
+
+Ansible is an open-source automation tool that enables users to manage, configure, and
+deploy software applications and infrastructure across multiple machines or servers.
+
+Ansible works by defining and executing playbooks, which are sets of instructions or
+tasks that specify what actions need to be taken on a particular machine or group of
+machines.
+
+playbooks can be written in YAML format and can include tasks such
+as installing software, configuring servers, and deploying applications
+
+does not require any software to be installed on the machines it is managing.
+
+Inventory: The inventory is a list of servers or nodes that Ansible can manage.
+file that contains a list of hostnames or IP addresses
+
+Playbooks: Playbooks are files that define a series of tasks to be executed by
+Ansible.
+written in YAML format
+
+Tasks: A task is a single action that Ansible can perform on a target node.
+
+Modules: Ansible uses modules to perform specific actions on target nodes.
+small programs that can be executed on the target node to change the systems state.
+
+Roles: A role is a collection of related tasks, files, and templates that can be reused across multiple playbooks.
+
+Ansible working:
+
+Ansible works by connecting to your nodes and pushing out a small program called Ansible modules to them.
+executes these modules and then remove them
+
+Ansible Server: It is a machine where Ansible is installed and from which all tasks and playbooks will be executed.
+
+Fact :The information fetched from the client system from the global variables with the gather facts operation.
+
+Handlers: Handlers are similar to tasks, but they are only executed if a specific event occurs, such as a configuration file being updated.
+
+-----------------------------------------------------------------------------------------------------------
+Docker
+Docker is an open-source platform for developing, packaging, distributing, and running applications in containers
+
+lightweight environments that can run anywhere
+Docker is a tool for running applications in isolated environment
+similar to virtual machine
+
+
+fundamental building block of Docker is the container
+
+Container: encapsulates an application and all its dependencies
+
+Each container runs in its own isolated environment, with its own file system, network interfaces, and memory space
+
+provides a set of tools and APIs that make it easy to create and manage containers
+
+Docker CLI (Command Line Interface) provides a set of commands for building, running, and managing containers
+Docker API provides a set of RESTful APIs for interacting with Docker from other applications.
+
+benefits of Docker is its ability to create images------->snapshots of container
+Docker images can be stored in a registry, such as Docker Hub, and can be pulled and used by other developers or systems
+
+provides a powerful way to develop, deploy, and manage applications
+
+Docker Architecture------------>
+based on a client-server model, with the Docker client and server communicating through a RESTful API over a network interface
+Docker client--->command-line tool that provides an interface to an user to interact with docker
+Docker server--->responsible for managing images,container and docker objects
+
+1)Docker Daemon:- core component of docker responsible for managing images,containers,networks
+listens request from docker client
+
+2)Docker client:- provides an interface to user to interact with the docker daemon
+sends request to docker daemon and display results to the users
+
+3)Docker registry:- repository for docker images such as docker hub
+
+4)Docker image:- read-only template
+contains everything needed to run an application including code,system tools
+images are created from dockerfile---->specify how to build an image
+
+5)Docker container:- contains all the dependencies to run an application
+created from docker images and can run on any system that has docker installed
+
+6)Docker network:-virtual network that allows containers to communicate with each other
+----------------
+docker commands
+
+docker run:- to run container from docker image
+docker ps:- display all running containers------>docker ps [OPTIONS]
+OPTIONS--> -a(show all containers,including stopped ones), -q(only show container ids), -f(filter containers based on specific criteria like name, status 
+docker images:- display all the images in the system ------->docker images [OPTIONS]
+docker build:-build a Docker image from a Dockerfile------>docker build [OPTIONS] PATH
+
+
+
+DOCKERFILE:
+text file that contains a set of instructions that are used to build a Docker image
+1.	FROM: The FROM instruction specifies the base image for the Docker image that is being built
+2.	RUN: The RUN instruction is used to execute commands inside the Docker image during the build process
+3.	COPY/ADD: The COPY or ADD instruction is used to copy files and directories from the local file system into the Docker image
+5.	EXPOSE: The EXPOSE instruction is used to inform Docker that the container will listen on the specified network ports at runtime.
+
+
+
+
+---------------------------------------------------------------------------------------------
+why playbooks are used in Ansible:
+
+Better organization and readability: Playbooks provide a structured way to organize and group tasks together. They allow for better readability and maintainability of the automation code.
+
+Reusability: Playbooks can be reused across multiple systems or environments, making it easier to deploy and manage infrastructure at scale.
+Error handling: Playbooks provide a way to handle errors and failures during the automation process.
+
+
+
+why YAML is the preferred language for Ansible:
+
+Human-readable and easy to learn: YAML is a simple and easy-to-learn language that is based on indentation and simple syntax. It is also very readable and can be easily understood by humans, making it easier to write, debug, and maintain Ansible automation code.
+Lightweight and portable: YAML is a lightweight language that can be easily transported across different systems and platforms. It is also very flexible and can be used to define complex data structures and workflows.
+YAML is a secure language that is designed to prevent injection attacks and other security vulnerabilities
+
+
+aws policies
+
+Identity and Access Management (IAM) policies: AWS IAM enables customers to control access to AWS resources by defining users, groups, and roles. 
+Network Security policies: AWS customers should define security groups and network access control lists (ACLs) to restrict inbound and outbound traffic to their resources. 
+Encryption policies: AWS customers should define encryption policies for their data to ensure that it is protected both in transit and at rest
+Backup and Recovery policies: AWS customers should define backup and recovery policies to ensure that their data is protected against data loss or corruption
+
+
+why NGINX i/s often used for website hosting:
+
+High performance: NGINX is designed to handle a large number of concurrent connections and requests, making it ideal for high-traffic websites and applications.
+
+Scalability: NGINX is highly scalable and can be easily configured to handle an increasing amount of traffic as a website or application grows.
+
+Flexibility: NGINX can be used as both a web server and a reverse proxy server, allowing for flexible deployment configurations and load balancing options.
+
+Security: NGINX provides a range of security features and options, including SSL/TLS encryption, rate limiting, and access control, making it a secure option for website hosting.
